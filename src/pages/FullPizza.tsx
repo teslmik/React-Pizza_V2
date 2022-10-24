@@ -38,7 +38,7 @@ const FullPizza: React.FC = () => {
           <h4>{pizza.price} ₴</h4>
         </div>
       </div>
-      <Link to="/" className="button button--black">
+      <Link to="/React-Pizza_V2" className="button button--black">
         <span>Повернутися назад</span>
       </Link>
     </div>
