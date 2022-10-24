@@ -18,7 +18,7 @@ const FullPizza: React.FC = () => {
         setPizza(data);
       } catch (error) {
         alert("Помилка при завантаженні...");
-        navigate('/');
+        navigate('/React-Pizza_V2');
       }
     }
 
