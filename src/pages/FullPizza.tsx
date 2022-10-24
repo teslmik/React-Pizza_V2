@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
+import { Preloader } from '../components';
 
 const FullPizza: React.FC = () => {
   const [pizza, setPizza] = React.useState<{
@@ -26,7 +27,7 @@ const FullPizza: React.FC = () => {
   }, [id, navigate]);
 
   if (!pizza) {
-    return <div className="container">Завантаження...</div>;
+    return <Preloader />;
   }
 
   return (

@@ -6,11 +6,12 @@ import Home from './pages/Home';
 import MainLayout from './layouts/MainLayout';
 
 import './scss/app.scss'
+import { Preloader } from './components';
 
 // const Cart = React.lazy(() => import(/* webpackChunkName: "Cart" */ './pages/Cart')); //----или как ниже!
 const Cart = Loadable({
   loader: () => import(/* webpackChunkName: "Cart" */ './pages/Cart'),
-  loading: () => <div className='container'>Завантаження кошика...</div>,
+  loading: () => <Preloader />,
 });
 
 const FullPizza = React.lazy(() => import(/* webpackChunkName: "FullPizza" */ './pages/FullPizza'));
@@ -23,13 +24,13 @@ function App() {
         <Route path="React-Pizza_V2" element={<Home />} />
         <Route path="React-Pizza_V2/cart" element={<Cart />}/>
         <Route path="React-Pizza_V2/pizza/:id" element={
-            <Suspense fallback={<div className='container'>Завантаження піци...</div>}>
+            <Suspense fallback={<Preloader />}>
               <FullPizza />
             </Suspense>
           }
         />
         <Route path="*" element={
-            <Suspense fallback={<div className='container'>Завантаження сторінки...</div>}>
+            <Suspense fallback={<Preloader />}>
               <NotFound />
             </Suspense>
           }
